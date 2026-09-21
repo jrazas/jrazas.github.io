@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>桃花源记ppt - 桃花源记课件制作与教学资源分享平台</title>
+    <meta name="description" content="提供《桃花源记》PPT课件下载、教学设计模板、动画演示及教学重点解析。适用于中学语文教学，包含全文翻译、重点字词讲解及精美配图素材。">
+    <meta name="keywords" content="桃花源记ppt,桃花源记课件,中学语文课件,桃花源记教学设计,桃花源记素材">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6d4c41;
+            --secondary-color: #8d6e63;
+            --accent-color: #d7ccc8;
+            --bg-color: #faf8f5;
+            --text-color: #3e2723;
+            --white: #ffffff;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #e91e63;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #5d4037;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffffff 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: rgba(141, 110, 99, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            background: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            display: inline-flex;
+            box-shadow: 0 8px 20px rgba(109, 76, 65, 0.15);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #5d4037;
+        }
+
+        /* Features */
+        .features {
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background-color: var(--bg-color);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+        }
+
+        /* Resources Grid */
+        .resources {
+            background-color: var(--bg-color);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 160px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(233, 30, 99, 0.9);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .download-btn {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .download-btn:hover {
+            color: #5d4037;
+        }
+
+        /* Tutorial Section */
+        .tutorial {
+            background-color: var(--white);
+        }
+
+        .tutorial-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .tutorial-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .tutorial-content p {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .step-list {
+            margin-top: 30px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-text h4 {
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .step-text p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .tutorial-visual {
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+        }
+
+        .mockup-header {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        .mockup-body {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .mockup-line {
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .mockup-line.short { width: 40%; }
+        .mockup-line.medium { width: 80%; }
+        .mockup-line.line { width: 100%; }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--bg-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: #666;
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 20px;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3e2723;
+            color: #d7ccc8;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8d6e63;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-wrapper { flex-direction: column; height: auto; padding: 15px 0; gap: 15px; }
+            nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .tutorial-layout { grid-template-columns: 1fr; }
+            .search-box { flex-direction: column; }
+            .search-box button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>桃花源记</span>课件资源
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#resources">课件下载</a></li>
+                    <li><a href="#tutorial">制作指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#resources" class="cta-btn">立即下载</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>《桃花源记》精品PPT课件与教学素材</h1>
+            <p>专为中学语文教师打造，包含全文翻译、重点字词解析、精美插画及互动教学设计模板。</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索更多课件资源，如：文言文、教学设计...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section-padding features">
+        <div class="container">
+            <div class="section-header">
+                <h2>为什么选择我们的资源</h2>
+                <p>一站式解决《桃花源记》教学难点，提升课堂效率</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>精美视觉设计</h3>
+                    <p>采用新中式风格排版，色彩和谐，重点突出，符合语文教学审美。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>内容详实准确</h3>
+                    <p>严格遵循教材版本，包含逐句翻译、通假字、古今异义等考点解析。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>即插即用</h3>
+                    <p>PPT格式直接编辑，动画效果已预设，教师可直接复制到课堂使用。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>多媒体整合</h3>
+                    <p>附带朗读音频及背景故事视频，丰富课堂表现形式。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="section-padding resources">
+        <div class="container">
+            <div class="section-header">
+                <h2>热门课件下载</h2>
+                <p>精选优质《桃花源记》PPT资源，满足不同教学需求</p>
+            </div>
+            <div class="resource-grid">
+                <!-- Resource 1 -->
+                <article class="resource-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/taohuayuan1/400/250" alt="桃花源记课件封面">
+                        <span class="card-badge">热门</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">人教版《桃花源记》精品PPT课件</h3>
+                        <div class="card-meta">
+                            <span>格式: PPTX</span>
+                            <span>大小: 15MB</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">包含全文翻译、字词讲解及全文朗读音频，适合初二语文课堂。</p>
+                        <div class="card-footer">
+                            <span style="font-size: 0.8rem; color: #999;">更新: 2023-10</span>
+                            <a href="#" class="download-btn">免费下载 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Resource 2 -->
+                <article class="resource-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/taohuayuan2/400/250" alt="桃花源记教学设计">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《桃花源记》教学设计及教案</h3>
+                        <div class="card-meta">
+                            <span>格式: PDF</span>
+                            <span>大小: 2MB</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">详细的备课思路，教学目标、重难点及板书设计，辅助PPT制作。</p>
+                        <div class="card-footer">
+                            <span style="font-size: 0.8rem; color: #999;">更新: 2023-09</span>
+                            <a href="#" class="download-btn">免费下载 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Resource 3 -->
+                <article class="resource-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/taohuayuan3/400/250" alt="文言文重点解析">
+                        <span class="card-badge">解析</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《桃花源记》重点字词专题讲解</h3>
+                        <div class="card-meta">
+                            <span>格式: PPTX</span>
+                            <span>大小: 8MB</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">重点讲解古今异义词、一词多义及特殊句式，适合复习课使用。</p>
+                        <div class="card-footer">
+                            <span style="font-size: 0.8rem; color: #999;">更新: 2023-11</span>
+                            <a href="#" class="download-btn">免费下载 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Resource 4 -->
+                <article class="resource-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/taohuayuan4/400/250" alt="朗读音频">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《桃花源记》名家朗诵音频</h3>
+                        <div class="card-meta">
+                            <span>格式: MP3</span>
+                            <span>大小: 5MB</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">标准普通话朗读，节奏把握准确，可用于早读或课堂导入。</p>
+                        <div class="card-footer">
+                            <span style="font-size: 0.8rem; color: #999;">更新: 2023-08</span>
+                            <a href="#" class="download-btn">免费下载 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorial Section -->
+    <section id="tutorial" class="section-padding tutorial">
+        <div class="container">
+            <div class="tutorial-layout">
+                <div class="tutorial-visual">
+                    <div class="mockup-header">
+                        <div class="dot" style="background:#ff5f56"></div>
+                        <div class="dot" style="background:#ffbd2e"></div>
+                        <div class="dot" style="background:#27ca40"></div>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="mockup-line line" style="background:#6d4c41; height: 20px; margin-bottom: 20px;"></div>
+                        <div class="mockup-line medium" style="background:#f0f0f0;"></div>
+                        <div class="mockup-line medium" style="background:#f0f0f0;"></div>
+                        <div class="mockup-line short" style="background:#f0f0f0;"></div>
+                        <div class="mockup-line short" style="background:#f0f0f0;"></div>
+                    </div>
+                </div>
+                <div class="tutorial-content">
+                    <h3>如何高效制作《桃花源记》PPT</h3>
+                    <p>制作一份优秀的语文课件，不仅需要精美的图片，更需要清晰的逻辑结构。以下是为您整理的PPT制作步骤：</p>
+                    <div class="step-list">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-text">
+                                <h4>确定教学目标</h4>
+                                <p>明确本节课要解决的重点字词（如“交通”、“妻子”）和难点翻译。</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-text">
+                                <h4>设计版式风格</h4>
+                                <p>采用水墨风或淡雅色系，配合桃花、溪水等背景元素，营造意境。</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-text">
+                                <h4>图文结合排版</h4>
+                                <p>左侧放原文，右侧放译文，中间插入关键情节的插画或地图。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题解答</h2>
+                <p>关于桃花源记课件下载与使用的疑问</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">这些PPT是否支持在线编辑？</div>
+                    <div class="faq-answer">
+                        <p>是的，所有下载的PPT文件均为标准PPTX格式，您可以使用Microsoft PowerPoint、WPS或Keynote直接打开并进行编辑。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">下载的课件包含哪些版本？</div>
+                    <div class="faq-answer">
+                        <p>主要涵盖人教版、部编版（统编版）等主流教材版本，内容严格同步最新教学大纲。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何获取配套的朗读音频？</div>
+                    <div class="faq-answer">
+                        <p>在部分精品课件包中，我们已内置了MP3格式的名家朗诵音频，下载后即可在电脑或手机上播放。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8; color: #a1887f;">
+                        专注为教育工作者提供优质的课件资源，致力于让语文课堂更加生动有趣。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>资源分类</h4>
+                    <ul>
+                        <li><a href="#">古诗词课件</a></li>
+                        <li><a href="#">文言文解析</a></li>
+                        <li><a href="#">现代文阅读</a></li>
+                        <li><a href="#">作文指导</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">下载说明</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 桃花源记课件资源网. All Rights Reserved. 本站资源仅供个人学习与教学参考使用。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
