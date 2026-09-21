@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mz16健康-全方位健康管理与疾病预防指南</title>
+    <meta name="description" content="mz16健康为您提供专业的健康资讯、疾病预防知识、养生保健指南及健康生活方式建议，助您构建科学健康的生活体系。">
+    <meta name="keywords" content="mz16健康,健康资讯,疾病预防,养生指南,健康管理">
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --primary-dark: #1E5E38;
+            --accent-color: #FF6B6B;
+            --bg-light: #F8F9FA;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --white: #FFFFFF;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4CAF50 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-box {
+            background: var(--white);
+            border-radius: 50px;
+            padding: 5px;
+            display: inline-flex;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 0 40px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #ff5252;
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: -40px;
+            padding-bottom: 60px;
+        }
+
+        /* Section Styling */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .section-title a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Articles List */
+        .article-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 25px;
+            display: flex;
+            transition: transform 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .article-img {
+            width: 280px;
+            height: 200px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background-color: #eee;
+        }
+
+        .article-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-tag {
+            background-color: #E8F5E9;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-meta {
+            margin-top: auto;
+            font-size: 0.85rem;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .hot-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .hot-list a {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .hot-list .rank {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .hot-list .rank.top-3 {
+            color: #FFD700;
+            font-size: 1.5rem;
+        }
+
+        .hot-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .hot-list span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Quick Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .cat-item {
+            background-color: #f0f4f8;
+            padding: 15px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .cat-item:hover {
+            background-color: #e1e8ed;
+        }
+
+        .cat-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .cat-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Health Guide Section */
+        .guide-section {
+            background-color: var(--white);
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .guide-card {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: var(--radius);
+            transition: all 0.3s;
+        }
+
+        .guide-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .guide-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #E8F5E9;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 15px;
+        }
+
+        .guide-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .guide-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #fff;
+            padding: 60px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            display: none;
+            padding-left: 20px;
+            border-left: 3px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .guide-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .article-card {
+                flex-direction: column;
+            }
+            .article-img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                mz16<span>健康</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">疾病百科</a></li>
+                    <li><a href="#">养生保健</a></li>
+                    <li><a href="#">饮食营养</a></li>
+                    <li><a href="#">心理健康</a></li>
+                    <li><a href="#" class="cta-btn">健康评估</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>科学守护您的每一天</h1>
+            <p>探索专业的健康知识库，获取权威的疾病预防指南与生活方式建议，为您的健康保驾护航。</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索疾病症状、养生方法或健康常识...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-grid">
+            <!-- Content Area -->
+            <div class="content-area">
+                <section>
+                    <div class="section-title">
+                        <h2>每日健康头条</h2>
+                        <a href="#">查看更多 ></a>
+                    </div>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/health1/280/200" alt="健康饮食" class="article-img">
+                        <div class="article-content">
+                            <span class="article-tag">营养膳食</span>
+                            <h3 class="article-title"><a href="#">秋季养生指南：多吃这三种食物，增强免疫力</a></h3>
+                            <p class="article-excerpt">随着秋季气温逐渐下降，人体容易受到寒冷侵袭。本文为您推荐三种秋季应季食材，帮助您在换季时节保持健康活力...</p>
+                            <div class="article-meta">
+                                <span>2023-10-24</span>
+                                <span>阅读 2.5k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/health2/280/200" alt="心血管健康" class="article-img">
+                        <div class="article-content">
+                            <span class="article-tag">心血管</span>
+                            <h3 class="article-title"><a href="#">高血压患者日常注意事项：不仅是少吃盐</a></h3>
+                            <p class="article-excerpt">高血压是现代社会常见的慢性病，除了饮食控制外，情绪管理、规律作息和定期监测血压同样至关重要。专家为您详细解读...</p>
+                            <div class="article-meta">
+                                <span>2023-10-23</span>
+                                <span>阅读 1.8k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/health3/280/200" alt="睡眠健康" class="article-img">
+                        <div class="article-content">
+                            <span class="article-tag">睡眠健康</span>
+                            <h3 class="article-title"><a href="#">长期失眠怎么办？改善睡眠质量的五个实用技巧</a></h3>
+                            <p class="article-excerpt">睡眠不足会严重影响生活质量。通过调整睡眠环境、建立规律的生物钟以及睡前放松训练，可以有效缓解失眠症状...</p>
+                            <div class="article-meta">
+                                <span>2023-10-22</span>
+                                <span>阅读 3.2k</span>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section style="margin-top: 50px;">
+                    <div class="section-title">
+                        <h2>深度专题</h2>
+                        <a href="#">更多专题 ></a>
+                    </div>
+                    <div class="guide-grid">
+                        <div class="guide-card">
+                            <div class="guide-icon">🧘</div>
+                            <h3>瑜伽入门</h3>
+                            <p>适合初学者的基础体式与呼吸法</p>
+                        </div>
+                        <div class="guide-card">
+                            <div class="guide-icon">🏃</div>
+                            <h3>运动损伤</h3>
+                            <p>常见运动伤害的预防与康复</p>
+                        </div>
+                        <div class="guide-card">
+                            <div class="guide-icon">🧬</div>
+                            <h3>基因检测</h3>
+                            <p>了解您的遗传风险与健康管理</p>
+                        </div>
+                        <div class="guide-card">
+                            <div class="guide-icon">🦷</div>
+                            <h3>口腔护理</h3>
+                            <p>科学刷牙与口腔疾病预防</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门搜索</h3>
+                    <ul class="hot-list">
+                        <li><a href="#"><span class="rank top-3">1</span> <span>糖尿病饮食禁忌</span></a></li>
+                        <li><a href="#"><span class="rank top-3">2</span> <span>颈椎病自我按摩</span></a></li>
+                        <li><a href="#"><span class="rank top-3">3</span> <span>冬季感冒预防</span></a></li>
+                        <li><a href="#"><span class="rank">4</span> <span>脂肪肝怎么调理</span></a></li>
+                        <li><a href="#"><span class="rank">5</span> <span>抑郁症早期症状</span></a></li>
+                        <li><a href="#"><span class="rank">6</span> <span>低血糖急救措施</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">健康分类</h3>
+                    <div class="category-grid">
+                        <a href="#" class="cat-item">
+                            <span class="cat-icon">🫀</span>
+                            <span class="cat-name">心血管</span>
+                        </a>
+                        <a href="#" class="cat-item">
+                            <span class="cat-icon">🧠</span>
+                            <span class="cat-name">神经系统</span>
+                        </a>
+                        <a href="#" class="cat-item">
+                            <span class="cat-icon">🦷</span>
+                            <span class="cat-name">口腔</span>
+                        </a>
+                        <a href="#" class="cat-item">
+                            <span class="cat-icon">👁️</span>
+                            <span class="cat-name">眼科</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget" style="background-color: #E8F5E9; border: 1px solid #C8E6C9;">
+                    <h3 class="widget-title" style="color: var(--primary-dark);">专家建议</h3>
+                    <p style="font-size: 0.9rem; color: var(--primary-dark); margin-bottom: 10px;">
+                        每天保持30分钟有氧运动，配合均衡饮食，是预防慢性病最有效的方法。
+                    </p>
+                    <a href="#" style="color: var(--primary-color); font-weight: bold; font-size: 0.9rem;">查看专家团队 ></a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见健康问题解答</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">什么是健康生活方式？</div>
+                    <div class="faq-answer">健康生活方式通常包括均衡营养的饮食、规律的体育锻炼、充足的睡眠、心理健康管理以及定期体检。这有助于降低患慢性疾病的风险。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">发现身体不适应该怎么办？</div>
+                    <div class="faq-answer">首先不要过度恐慌。如果症状轻微，可以通过休息和观察来缓解。如果症状持续或加重，建议及时前往医院就诊，寻求专业医生的帮助。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何制定科学的饮食计划？</div>
+                    <div class="faq-answer">科学的饮食计划应遵循“食物多样、谷类为主”的原则，多吃蔬菜水果，适量摄入优质蛋白质（如鱼、禽、蛋、奶、豆类），减少盐、油和糖的摄入。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>mz16健康</h4>
+                    <p>致力于提供权威、科学、全面的健康资讯与服务。我们关注您的身心健康，为您的生活提供专业的指导与支持。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">专家团队</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">联系合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>健康栏目</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">疾病百科</a></li>
+                        <li><a href="#">养生保健</a></li>
+                        <li><a href="#">用药指南</a></li>
+                        <li><a href="#">急救知识</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <p>获取最新健康资讯，守护家人健康。</p>
+                    <div style="display: flex; gap: 10px;">
+                        <span style="background:#3b5998; width:30px; height:30px; border-radius:4px; display:inline-block;"></span>
+                        <span style="background:#1da1f2; width:30px; height:30px; border-radius:4px; display:inline-block;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 mz16健康 版权所有. 本网站内容仅供参考，不能替代专业医疗建议。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // Simple FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+              </html>
