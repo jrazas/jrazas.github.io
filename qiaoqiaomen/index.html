@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敲敲门 豆瓣 - 独立电影社区与资源聚合平台</title>
+    <meta name="description" content="敲敲门 豆瓣 - 专注于独立电影、小众影视与深度影评的社区平台。提供高清片源、导演访谈、影迷讨论及经典影片鉴赏指南。">
+    <meta name="keywords" content="敲敲门 豆瓣, 独立电影, 影评, 深度影评, 影迷社区, 短片推荐">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #141414;
+            --text-main: #e5e5e5;
+            --text-sub: #a3a3a3;
+            --accent: #e50914;
+            --accent-hover: #b20710;
+            --nav-bg: rgba(10, 10, 10, 0.95);
+            --border-color: #333;
+            --spacing-unit: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            color: var(--text-sub);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            height: 500px;
+            background: linear-gradient(to top, var(--bg-color) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.2) 100%),
+                        url('https://picsum.photos/seed/cinema/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            background: rgba(229, 9, 20, 0.2);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 16px;
+            border: 1px solid rgba(229, 9, 20, 0.4);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-link {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* Movie Grid */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .movie-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-color: var(--border-color);
+        }
+
+        .card-poster {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #222;
+            position: relative;
+        }
+
+        .card-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rating-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.8);
+            color: #f5c518;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .card-info {
+            padding: 16px;
+        }
+
+        .movie-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Sidebar */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                height: 400px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                display: none;
+            }
+        }
+
+        /* Sidebar Widgets */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-left: 8px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: baseline;
+            padding: 8px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            width: 20px;
+            font-weight: bold;
+        }
+
+        .rank-info {
+            flex: 1;
+            margin-left: 8px;
+        }
+
+        .rank-title {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .rank-year {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        /* Review List */
+        .review-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .review-item {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #333;
+            flex-shrink: 0;
+        }
+
+        .review-content {
+            flex: 1;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .review-time {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        .review-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .review-text {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .review-footer {
+            margin-top: 10px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .review-tag {
+            font-size: 0.8rem;
+            color: var(--accent);
+            background: rgba(229, 9, 20, 0.1);
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 48px 24px;
+            background: #050505;
+            margin-top: 48px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--text-main);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #1a1a1a;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Utility */
+        .hidden-mobile {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .hidden-mobile {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <span>敲敲门</span>豆瓣
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#" class="active">首页</a></li>
+            <li><a href="#">电影</a></li>
+            <li><a href="#">图书</a></li>
+            <li><a href="#">小组</a></li>
+            <li><a href="#">榜单</a></li>
+        </ul>
+    </nav>
+    <div class="search-btn hidden-mobile" title="搜索">
+        🔍
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <span class="tag-pill">独立影展精选</span>
+            <h1>在光影深处<br>寻找共鸣</h1>
+            <p class="hero-desc">敲敲门豆瓣汇聚全球独立电影、纪录片与经典艺术电影。在这里，每一部作品都值得被认真观看，每一条评论都值得被耐心阅读。</p>
+            <div class="cta-group">
+                <a href="#" class="btn btn-primary">探索片单</a>
+                <a href="#" class="btn btn-secondary">参与讨论</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container layout-grid">
+        <div class="main-content">
+            <!-- Section: Daily Top -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">每日高分推荐</h2>
+                    <a href="#" class="section-link">查看完整榜单 &raquo;</a>
+                </div>
+                <div class="movie-grid">
+                    <article class="movie-card">
+                        <div class="card-poster">
+                            <img src="https://picsum.photos/seed/movie1/300/450" alt="电影海报">
+                            <div class="rating-badge">9.2</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="movie-title">午夜巴黎</h3>
+                            <div class="movie-meta">
+                                <span>爱情</span>
+                                <span>2011</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="movie-card">
+                        <div class="card-poster">
+                            <img src="https://picsum.photos/seed/movie2/300/450" alt="电影海报">
+                            <div class="rating-badge">8.8</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="movie-title">寄生虫</h3>
+                            <div class="movie-meta">
+                                <span>剧情</span>
+                                <span>2019</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="movie-card">
+                        <div class="card-poster">
+                            <img src="https://picsum.photos/seed/movie3/300/450" alt="电影海报">
+                            <div class="rating-badge">9.0</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="movie-title">千与千寻</h3>
+                            <div class="movie-meta">
+                                <span>动画</span>
+                                <span>2001</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="movie-card">
+                        <div class="card-poster">
+                            <img src="https://picsum.photos/seed/movie4/300/450" alt="电影海报">
+                            <div class="rating-badge">8.5</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="movie-title">霸王别姬</h3>
+                            <div class="movie-meta">
+                                <span>剧情</span>
+                                <span>1993</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="movie-card">
+                        <div class="card-poster">
+                            <img src="https://picsum.photos/seed/movie5/300/450" alt="电影海报">
+                            <div class="rating-badge">8.9</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="movie-title">星际穿越</h3>
+                            <div class="movie-meta">
+                                <span>科幻</span>
+                                <span>2014</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="movie-card">
+                        <div class="card-poster">
+                            <img src="https://picsum.photos/seed/movie6/300/450" alt="电影海报">
+                            <div class="rating-badge">9.1</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="movie-title">肖申克的救赎</h3>
+                            <div class="movie-meta">
+                                <span>剧情</span>
+                                <span>1994</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Section: Deep Reviews -->
+            <section class="section" style="margin-top: 48px;">
+                <div class="section-header">
+                    <h2 class="section-title">深度影评</h2>
+                    <a href="#" class="section-link">阅读更多 &raquo;</a>
+                </div>
+                <div class="review-list">
+                    <article class="review-item">
+                        <img src="https://picsum.photos/seed/user1/100/100" class="review-avatar" alt="用户头像">
+                        <div class="review-content">
+                            <div class="review-header">
+                                <span class="review-author">光影记录者</span>
+                                <span class="review-time">2小时前</span>
+                            </div>
+                            <h3 class="review-title">如何理解现代电影中的叙事碎片化？</h3>
+                            <p class="review-text">在《记忆碎片》和《鸟人》之后，我们似乎进入了一个无法用线性逻辑讲述故事的年代。这种碎片化并非单纯的炫技，而是对现代人记忆与认知状态的隐喻...</p>
+                            <div class="review-footer">
+                                <span class="review-tag">影评</span>
+                                <span class="review-tag">叙事学</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="review-item">
+                        <img src="https://picsum.photos/seed/user2/100/100" class="review-avatar" alt="用户头像">
+                        <div class="review-content">
+                            <div class="review-header">
+                                <span class="review-author">胶片守护人</span>
+                                <span class="review-time">5小时前</span>
+                            </div>
+                            <h3 class="review-title">去电影院，是为了那一瞬间的真实感</h3>
+                            <p class="review-text">在这个流媒体泛滥的时代，依然坚持去影院观看电影。因为只有那个封闭的空间，只有那个巨大的银幕，才能还原导演想要传递的视听冲击力...</p>
+                            <div class="review-footer">
+                                <span class="review-tag">观后感</span>
+                                <span class="review-tag">观影指南</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="review-item">
+                        <img src="https://picsum.photos/seed/user3/100/100" class="review-avatar" alt="用户头像">
+                        <div class="review-content">
+                            <div class="review-header">
+                                <span class="review-author">电影学徒</span>
+                                <span class="review-time">昨天</span>
+                            </div>
+                            <h3 class="review-title">新锐导演访谈：关于《敲敲门》的幕后故事</h3>
+                            <p class="review-text">本期我们采访了独立导演李默，探讨他在拍摄过程中遇到的资金困难以及如何用有限的预算完成高质量的视听语言表达...</p>
+                            <div class="review-footer">
+                                <span class="review-tag">访谈</span>
+                                <span class="review-tag">幕后</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <aside class="sidebar">
+            <!-- Widget: Categories -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">热门分类</h3>
+                <ul class="rank-list">
+                    <li><span class="rank-num">1</span><div class="rank-info"><span class="rank-title">剧情片</span><span class="rank-year">经典</span></div></li>
+                    <li><span class="rank-num">2</span><div class="rank-info"><span class="rank-title">科幻片</span><span class="rank-year">未来</span></div></li>
+                    <li><span class="rank-num">3</span><div class="rank-info"><span class="rank-title">恐怖片</span><span class="rank-year">惊悚</span></div></li>
+                    <li><span class="rank-num">4</span><div class="rank-info"><span class="rank-title">动画</span><span class="rank-year">治愈</span></div></li>
+                    <li><span class="rank-num">5</span><div class="rank-info"><span class="rank-title">纪录片</span><span class="rank-year">真实</span></div></li>
+                </ul>
+            </div>
+
+            <!-- Widget: Community -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">活跃小组</h3>
+                <ul class="rank-list">
+                    <li><span class="rank-num">1</span><div class="rank-info"><span class="rank-title">欧洲艺术电影研习会</span><span class="rank-year">5.2k 会员</span></div></li>
+                    <li><span class="rank-num">2</span><div class="rank-info"><span class="rank-title">午夜场观影团</span><span class="rank-year">3.8k 会员</span></div></li>
+                    <li><span class="rank-num">3</span><div class="rank-info"><span class="rank-title">胶片摄影交流</span><span class="rank-year">1.2k 会员</span></div></li>
+                </ul>
+            </div>
+
+            <!-- Widget: CTA -->
+            <div class="sidebar-widget" style="background: linear-gradient(45deg, #1a1a1a, #222); text-align: center;">
+                <h3 class="widget-title" style="border:none; text-align: center; margin-bottom: 10px;">加入我们</h3>
+                <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 16px;">分享你的片单，结识志同道合的影迷。</p>
+                <button class="btn btn-primary" style="width: 100%;">注册账号</button>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于敲敲门</h4>
+            <p style="color: #666; font-size: 0.9rem; line-height: 1.6;">
+                敲敲门豆瓣致力于打造最纯粹的影迷社区。我们相信，好的电影值得被讨论，好的评论值得被看见。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>探索</h4>
+            <ul>
+                <li><a href="#">最新上映</a></li>
+                <li><a href="#">高分榜单</a></li>
+                <li><a href="#">年度总结</a></li>
+                <li><a href="#">影人百科</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>社区</h4>
+            <ul>
+                <li><a href="#">小组</a></li>
+                <li><a href="#">影评大赛</a></li>
+                <li><a href="#">活动日历</a></li>
+                <li><a href="#">帮助中心</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>关注我们</h4>
+            <ul>
+                <li><a href="#">微信公众号</a></li>
+                <li><a href="#">微博</a></li>
+                <li><a href="#">豆瓣小站</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 敲敲门豆瓣 版权所有 | 仅供演示用途
+    </div>
+</footer>
+
+</body>
+  </html>
