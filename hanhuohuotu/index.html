@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="韩火火图片 - 专注韩系时尚穿搭灵感与摄影图片分享平台，提供高清街拍、OOTD穿搭指南及韩国潮流风格展示。">
+    <meta name="keywords" content="韩火火图片,韩系穿搭,韩国街拍,OOTD,时尚摄影,韩式风格">
+    <title>韩火火图片 - 韩系时尚穿搭灵感与高清摄影图库</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d6336c;
+            --secondary-color: #f8f9fa;
+            --text-dark: #212529;
+            --text-gray: #6c757d;
+            --border-color: #e9ecef;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-color: #f0f0f0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85);
+            transition: transform 0.5s ease;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1.02);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #b02a6b;
+            transform: translateY(-2px);
+        }
+
+        /* Categories */
+        .categories {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--secondary-color);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
+        }
+
+        .cat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .category-card p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 60px 0;
+            background-color: #fafafa;
+        }
+
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .photo-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s;
+            position: relative;
+        }
+
+        .photo-card:hover {
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            background-color: #eee;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-card:hover .img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .photo-info {
+            padding: 15px;
+        }
+
+        .photo-tag {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .photo-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .photo-meta {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Features/Style Guide */
+        .style-guide {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .guide-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .guide-content p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .check-icon {
+            color: var(--primary-color);
+            margin-top: 4px;
+        }
+
+        .guide-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .guide-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            display: none;
+            padding-top: 10px;
+            border-top: 1px solid #f1f1f1;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #aaa;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .guide-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>❤</span> 韩火火图片
+            </a>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">穿搭图鉴</a>
+                <a href="#">街拍精选</a>
+                <a href="#">风格指南</a>
+                <a href="#">关于我们</a>
+            </nav>
+            <button class="search-btn" aria-label="搜索">🔍</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="https://picsum.photos/seed/koreanfashion/1600/900" alt="韩系时尚背景" class="hero-bg">
+            <div class="hero-content">
+                <h1>探索韩系时尚美学</h1>
+                <p>汇集全网最热门的韩火火风格图片，从日常通勤到周末出游，为您提供最直观的穿搭灵感与视觉参考。</p>
+                <a href="#gallery" class="cta-btn">开始浏览图片</a>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title">热门分类</h2>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <span class="cat-icon">👗</span>
+                        <h3>韩系穿搭</h3>
+                        <p>Top-down & Oversized</p>
+                    </div>
+                    <div class="category-card">
+                        <span class="cat-icon">📸</span>
+                        <h3>首尔街拍</h3>
+                        <p>弘大 & 江南风格</p>
+                    </div>
+                    <div class="category-card">
+                        <span class="cat-icon">💄</span>
+                        <h3>韩式妆容</h3>
+                        <p>伪素颜 & 红唇系</p>
+                    </div>
+                    <div class="category-card">
+                        <span class="cat-icon">🎒</span>
+                        <h3>配饰搭配</h3>
+                        <p>包包 & 帽子指南</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <div class="gallery-header">
+                    <h2 class="section-title">精选图集</h2>
+                    <a href="#" style="color: var(--primary-color); font-weight: 500;">查看更多 &rarr;</a>
+                </div>
+                <div class="gallery-grid">
+                    <!-- Item 1 -->
+                    <article class="photo-card">
+                        <div class="img-wrapper">
+                            <img src="https://picsum.photos/seed/fashion1/400/500" alt="春季韩系穿搭图片" loading="lazy">
+                        </div>
+                        <div class="photo-info">
+                            <span class="photo-tag">春季穿搭</span>
+                            <h3 class="photo-title">清新淡雅的春日针织衫搭配</h3>
+                            <div class="photo-meta">
+                                <span>👁 1.2k</span>
+                                <span>⬇ 45</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Item 2 -->
+                    <article class="photo-card">
+                        <div class="img-wrapper">
+                            <img src="https://picsum.photos/seed/fashion2/400/500" alt="韩式街头风格" loading="lazy">
+                        </div>
+                        <div class="photo-info">
+                            <span class="photo-tag">街头风格</span>
+                            <h3 class="photo-title">首尔街头潮流混搭示范</h3>
+                            <div class="photo-meta">
+                                <span>👁 2.5k</span>
+                                <span>⬇ 120</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Item 3 -->
+                    <article class="photo-card">
+                        <div class="img-wrapper">
+                            <img src="https://picsum.photos/seed/fashion3/400/500" alt="韩系妆容参考" loading="lazy">
+                        </div>
+                        <div class="photo-info">
+                            <span class="photo-tag">妆容灵感</span>
+                            <h3 class="photo-title">适合亚洲肤色的韩式裸妆</h3>
+                            <div class="photo-meta">
+                                <span>👁 890</span>
+                                <span>⬇ 32</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Item 4 -->
+                    <article class="photo-card">
+                        <div class="img-wrapper">
+                            <img src="https://picsum.photos/seed/fashion4/400/500" alt="韩系配色方案" loading="lazy">
+                        </div>
+                        <div class="photo-info">
+                            <span class="photo-tag">色彩搭配</span>
+                            <h3 class="photo-title">莫兰迪色系的温柔穿搭</h3>
+                            <div class="photo-meta">
+                                <span>👁 3.1k</span>
+                                <span>⬇ 210</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Style Guide / Features -->
+        <section class="style-guide">
+            <div class="container">
+                <div class="guide-layout">
+                    <div class="guide-content">
+                        <h2>为什么选择韩火火图片？</h2>
+                        <p>我们致力于为时尚爱好者提供最真实、最贴近生活的韩系图片资源。不同于僵硬的模特摆拍，这里展示的是真实生活场景下的穿搭与美学。</p>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>高清原图</strong>
+                                    <p style="font-size: 0.9rem; color: var(--text-gray);">提供高分辨率图片，细节清晰可见。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>风格多样</strong>
+                                    <p style="font-size: 0.9rem; color: var(--text-gray);">涵盖复古、极简、甜美、酷飒等多种风格。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>实用搭配</strong>
+                                    <p style="font-size: 0.9rem; color: var(--text-gray);">每张图片均附带配色方案与单品建议。</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="guide-image">
+                        <img src="https://picsum.photos/seed/styleguide/600/400" alt="韩系穿搭风格指南展示">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container faq-container">
+                <h2 class="section-title" style="margin-bottom: 30px;">常见问题</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">这些图片可以商用吗？ <span>+</span></div>
+                    <div class="faq-answer">本站大部分图片仅供个人欣赏与学习参考，商用请务必联系版权方获取授权。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">如何保存喜欢的图片？ <span>+</span></div>
+                    <div class="faq-answer">点击图片即可查看大图，右键选择“图片另存为”即可下载本地保存。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">这里的内容更新频率如何？ <span>+</span></div>
+                    <div class="faq-answer">我们每日精选最新的韩系时尚图片，保持内容的新鲜度与时效性。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>韩火火图片</h4>
+                    <p style="color: #aaa; font-size: 0.9rem;">专注于分享韩系时尚美学，为您发现生活中的美好穿搭灵感。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">最新上传</a></li>
+                        <li><a href="#">热门排行</a></li>
+                        <li><a href="#">风格标签</a></li>
+                        <li><a href="#">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>法律声明</h4>
+                    <ul>
+                        <li><a href="#">版权协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">用户协议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 韩火火图片. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
