@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="02kkk成电影图片 - 专注于高清影视素材与视觉艺术展示，提供精选图片资源、视觉风格指南及电影感后期处理技巧。">
+    <meta name="keywords" content="02kkk成电影图片, 电影感图片, 高清素材, 视觉设计, 影像后期">
+    <title>02kkk成电影图片 - 高清影视素材与视觉艺术展示</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #1a1a1d;
+            --text-main: #ffffff;
+            --text-sub: #a0a0a0;
+            --accent: #e50914;
+            --accent-hover: #b20710;
+            --border: #333;
+            --container-width: 1200px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 15, 17, 0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            color: var(--text-sub);
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(15,15,17,0.3), var(--bg-color)), 
+                        url('https://picsum.photos/seed/cinema/1600/900') no-repeat center center/cover;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, var(--bg-color) 0%, rgba(15,15,17,0.4) 50%, var(--bg-color) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ddd;
+            margin-bottom: 32px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: white;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Main Content Grid */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            border-color: #444;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #2a2a2a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+        }
+
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-info {
+            padding: 16px;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #161618;
+            padding: 60px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .feature-content p {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            padding: 60px 0;
+        }
+
+        .guide-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .step-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.1);
+            line-height: 1;
+        }
+
+        .step-content h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: var(--text-sub);
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .header-inner { padding: 0 10px; }
+            nav { display: none; } /* Simplified for mobile */
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .grid-gallery { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">Visual<span>Pro</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">高清图库</a></li>
+                    <li><a href="#">影视风格</a></li>
+                    <li><a href="#">设计教程</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" aria-label="搜索">🔍</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>探索 02kkk成电影图片的视觉魅力</h1>
+                <p>获取专业级的高清影像素材与电影感视觉解决方案，提升您的创作品质。</p>
+                <div class="cta-group">
+                    <a href="#gallery" class="btn btn-primary">浏览图库</a>
+                    <a href="#guide" class="btn btn-secondary">阅读指南</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">精选视觉作品</h2>
+                    <span class="section-subtitle">为您呈现最具电影质感的画面</span>
+                </div>
+                <div class="grid-gallery">
+                    <!-- Card 1 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/movie1/400/300" alt="电影感夜景图">
+                            <div class="card-overlay">
+                                <span class="btn btn-primary" style="font-size: 12px; padding: 6px 12px;">查看详情</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <span class="card-tag">夜景</span>
+                            <h3 class="card-title">赛博朋克都市夜景</h3>
+                            <p class="card-desc">高对比度调色，霓虹灯光与雨夜街道的完美结合，营造深邃氛围。</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/movie2/400/300" alt="电影感人像图">
+                            <div class="card-overlay">
+                                <span class="btn btn-primary" style="font-size: 12px; padding: 6px 12px;">查看详情</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <span class="card-tag">人像</span>
+                            <h3 class="card-title">电影级质感人像</h3>
+                            <p class="card-desc">利用柔光箱与逆光拍摄，突出人物轮廓，展现细腻的皮肤纹理。</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/movie3/400/300" alt="电影感风景图">
+                            <div class="card-overlay">
+                                <span class="btn btn-primary" style="font-size: 12px; padding: 6px 12px;">查看详情</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <span class="card-tag">风景</span>
+                            <h3 class="card-title">大广角自然风光</h3>
+                            <p class="card-desc">广角镜头捕捉壮丽景色，强调空间纵深感与自然光影变化。</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/movie4/400/300" alt="电影感特写图">
+                            <div class="card-overlay">
+                                <span class="btn btn-primary" style="font-size: 12px; padding: 6px 12px;">查看详情</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <span class="card-tag">特写</span>
+                            <h3 class="card-title">极致微距细节</h3>
+                            <p class="card-desc">放大生活中的微小瞬间，通过景深虚化突出主体，讲述无声故事。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">为什么选择我们</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">4K</div>
+                        <div class="feature-content">
+                            <h3>超高清画质</h3>
+                            <p>所有素材均支持 4K 分辨率输出，确保在任何屏幕上都清晰锐利。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <div class="feature-content">
+                            <h3>专业调色方案</h3>
+                            <p>提供预设好的 LUTs 调色文件，一键还原电影级的色彩风格。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-content">
+                            <h3>商用授权保障</h3>
+                            <p>正规版权渠道，提供完善的商业使用授权，无后顾之忧。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-section" id="guide">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">如何制作电影感图片</h2>
+                </div>
+                <div class="guide-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h4>选择合适的设备与镜头</h4>
+                            <p>使用全画幅相机拍摄，配合大光圈定焦镜头（如 50mm f/1.8）可以创造迷人的散景效果，这是电影感的基础。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h4>控制曝光与光线</h4>
+                            <p>利用自然光或柔光箱，避免直射强光。尝试侧逆光或轮廓光，能增加画面的立体感和戏剧张力。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h4>后期色彩校正</h4>
+                            <p>在后期软件中降低饱和度，增加对比度，并调整色温。使用暗角工具聚焦视觉中心，模拟电影胶片的质感。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Visual<span>Pro</span></h2>
+                    <p>致力于为设计师、摄影师和内容创作者提供优质的视觉素材与专业指导。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>资源</h4>
+                    <ul>
+                        <li><a href="#">高清图库</a></li>
+                        <li><a href="#">摄影教程</a></li>
+                        <li><a href="#">调色预设</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="#">版权咨询</a></li>
+                        <li><a href="#">商业合作</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>法律</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">使用条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 VisualPro. All Rights Reserved. 本站内容仅供学习交流使用。
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
