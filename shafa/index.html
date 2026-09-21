@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杀发-专业美发造型工具与护发资讯平台</title>
+    <meta name="description" content="杀发网为您提供专业美发工具评测、发型设计教程及护发技巧。从剪刀到吹风机，从男士短发到烫染造型，一站式美发解决方案。">
+    <meta name="keywords" content="杀发,美发工具,发型设计,理发店,护发,男士短发,烫染教程">
+    <style>
+        :root {
+            --primary-color: #d35400;
+            --primary-hover: #e67e22;
+            --secondary-color: #2c3e50;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--secondary-color);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 8px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 14px;
+            width: 200px;
+            transition: width 0.3s;
+        }
+
+        .search-box input:focus {
+            width: 240px;
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdfbf7 0%, #fff5eb 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(211, 84, 0, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Content Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        /* Article List */
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .article-card {
+            display: flex;
+            gap: 20px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: box-shadow 0.3s;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        }
+
+        .article-img {
+            width: 240px;
+            height: 180px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background-color: #eee;
+        }
+
+        .article-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .article-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .article-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .widget-title {
+            font-size: 18px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: #eee;
+            color: #666;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background-color: #ff4757; color: white; }
+        .rank-list li:nth-child(2) .rank-num { background-color: #ffa502; color: white; }
+        .rank-list li:nth-child(3) .rank-num { background-color: #2ed573; color: white; }
+
+        .rank-title {
+            font-size: 14px;
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .category-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .category-list li a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .category-list li a span.count {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .newsletter-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .newsletter-text h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .newsletter-text p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            padding: 10px 15px;
+            border-radius: 4px;
+            border: none;
+            width: 250px;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-card {
+                flex-direction: column;
+            }
+
+            .article-img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .newsletter-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>✂</span> 杀发
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">发型教程</a></li>
+                    <li><a href="#">美发工具</a></li>
+                    <li><a href="#">护发百科</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索发型、工具或技巧...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>探索完美发型，开启自信造型</h1>
+                <p>无论是男士利落短发，还是女士精致造型，杀发为您提供专业的修剪技巧、工具评测与护理方案。</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">查看热门发型</a>
+                    <a href="#" class="btn btn-outline">美发工具选购指南</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>为什么选择杀发？</h2>
+                    <p>我们致力于解决您的发质困扰与造型难题</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✂️</div>
+                        <h3>专业修剪</h3>
+                        <p>针对不同脸型与发质的个性化修剪方案，让每一根发丝都听话。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💇‍♂️</div>
+                        <h3>潮流造型</h3>
+                        <p>紧跟国际潮流趋势，从韩式剪裁到日系纹理，一网打尽。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧴</div>
+                        <h3>科学护发</h3>
+                        <p>针对烫染受损与干枯毛躁，提供专业的修复与日常护理建议。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛠️</div>
+                        <h3>工具评测</h3>
+                        <p>深度解析理发店与家用美发工具，助您找到性价比最高的装备。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="container content-grid">
+            <!-- Article List -->
+            <div class="article-list">
+                <div class="section-title" style="text-align: left; margin-bottom: 20px;">
+                    <h2>最新发型资讯</h2>
+                </div>
+
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/hair1/240/180" alt="男士短发造型" class="article-img">
+                    <div class="article-content">
+                        <span class="article-tag">男士短发</span>
+                        <h3 class="article-title">2024年最流行的男士短发趋势解析</h3>
+                        <p class="article-desc">随着季节更替，男士发型也在不断演变。本文将为您深度解析当下最火的几款短发，包括纹理烫、飞机头等，助您轻松驾驭潮流。</p>
+                        <div class="article-meta">
+                            <span>👤 理发师小王</span>
+                            <span>📅 2023-10-24</span>
+                            <span>👁️ 1.2k 阅读</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/hair2/240/180" alt="烫染技巧" class="article-img">
+                    <div class="article-content">
+                        <span class="article-tag">烫染技巧</span>
+                        <h3 class="article-title">新手必看：避免烫发失败的三个关键步骤</h3>
+                        <p class="article-desc">想要拥有完美的卷发却总是担心炸毛？了解药水选择、卷杠大小与卷发时间的科学配比，是保证发质与造型效果的基础。</p>
+                        <div class="article-meta">
+                            <span>👤 美发顾问</span>
+                            <span>📅 2023-10-22</span>
+                            <span>👁️ 856 阅读</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/hair3/240/180" alt="家庭护发" class="article-img">
+                    <div class="article-content">
+                        <span class="article-tag">家庭护发</span>
+                        <h3 class="article-title">居家吹风造型教程：打造蓬松空气感</h3>
+                        <p class="article-desc">不需要去理发店，在家也能做出理发店级别的蓬松效果。掌握吹风机的角度与梳子的使用技巧，让发型更持久。</p>
+                        <div class="article-meta">
+                            <span>👤 美妆博主</span>
+                            <span>📅 2023-10-20</span>
+                            <span>👁️ 2.1k 阅读</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Sidebar -->
+            <aside>
+                <!-- Hot Ranking -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门发型排行</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num">1</span>
+                            <span class="rank-title">韩式微卷长直发</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">2</span>
+                            <span class="rank-title">韩式大波浪烫发</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">3</span>
+                            <span class="rank-title">日系油头纹理烫</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <span class="rank-title">露额前刺短发</span>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <span class="rank-title">法式刘海修饰脸型</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">内容分类</h3>
+                    <ul class="category-list">
+                        <li><a href="#"><span>男士发型</span> <span class="count">128</span></a></li>
+                        <li><a href="#"><span>女士长发</span> <span class="count">95</span></a></li>
+                        <li><a href="#"><span>女士短发</span> <span class="count">76</span></a></li>
+                        <li><a href="#"><span>烫发知识</span> <span class="count">42</span></a></li>
+                        <li><a href="#"><span>染发技巧</span> <span class="count">38</span></a></li>
+                        <li><a href="#"><span>工具选购</span> <span class="count">29</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Ad Placeholder -->
+                <div class="sidebar-widget" style="background: #f9f9f9; text-align: center; padding: 40px 20px; border: 2px dashed #ddd;">
+                    <p style="color: #999; font-size: 14px;">广告位</p>
+                    <p style="color: #bbb; font-size: 12px;">专业美发沙龙推荐</p>
+                </div>
+            </aside>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container newsletter-content">
+                <div class="newsletter-text">
+                    <h3>订阅杀发周刊</h3>
+                    <p>每周获取最新的发型灵感、护发技巧及优惠资讯，直接发送到您的邮箱。</p>
+                </div>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('感谢订阅！我们将定期发送美发资讯。');">
+                    <input type="email" placeholder="请输入您的邮箱地址" required>
+                    <button type="submit">立即订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于杀发</h4>
+                    <p style="font-size: 14px; line-height: 1.8; color: #888;">
+                        杀发是一个专注于美发领域的知识分享平台。我们致力于通过专业的图文教程、视频解析和工具评测，帮助每一位用户找到适合自己的发型与护发方案。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">发型分类</a></li>
+                        <li><a href="#">美发工具</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门专题</h4>
+                    <ul>
+                        <li><a href="#">男士短发设计</a></li>
+                        <li><a href="#">卷发护理指南</a></li>
+                        <li><a href="#">吹风机测评</a></li>
+                        <li><a href="#">染发颜色搭配</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>邮箱：contact@shafa.com</li>
+                        <li>电话：400-123-4567</li>
+                        <li>地址：美发创意产业园A栋</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 杀发网 版权所有 | 本站内容仅供学习参考</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
